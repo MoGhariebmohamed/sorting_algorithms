@@ -35,7 +35,7 @@ void quick_sort(int *array, size_t size){
         if(j==n){
             done=true;
             quick_sort(array, n-1 );
-            quick_sort(&array[n+1],size-n);
+            quick_sort(&array[n + 1], size - (n + 1));
         }else if(j<n){
             if(array[j]<array[n]){
                 j++;
