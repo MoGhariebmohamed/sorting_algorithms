@@ -24,7 +24,7 @@ void swaap(int *a, int *b)
  */
 void quick_sort(int *array, size_t size){
     size_t n = size-1;
-    size_t j, k = 0;
+    size_t j, c, k = 0;
     bool done = false;
 
 	if (array == NULL || size < 2)
@@ -35,7 +35,7 @@ void quick_sort(int *array, size_t size){
         if(j==n){
             done=true;
             quick_sort(array, n-1 );
-            quick_sort(&array[n + 1], size - (n + 1));
+            quick_sort(&array[n + 1], size - n );
         }else if(j<n){
             if(array[j]<array[n]){
                 j++;
@@ -43,7 +43,7 @@ void quick_sort(int *array, size_t size){
                 swaap(&array[j],&array[n]);
                 k=n;
                 n=j;
-                j=k;
+                j=k-1;
             }
         }else{
             if(array[n]<array[j]){
@@ -52,8 +52,10 @@ void quick_sort(int *array, size_t size){
                 swaap(&array[j],&array[n]);
                 k=n;
                 n=j;
-                j=k;
+                j=k+1;
             }
         }
+        print_array(array, size);
     }
+
 }
