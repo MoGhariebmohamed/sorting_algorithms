@@ -42,5 +42,5 @@ void quick_sort(int *array, size_t size){
     }
 
         quick_sort(array, c );
-        quick_sort(&array[c + 1], size - c);
+        quick_sort(&array[c + 1], size - c -1);
 }
